@@ -1,0 +1,33 @@
+# Use this to build commit messages,
+# If activated this hook, every time on commit message, the hook trigger a script
+# a wizard for create a commit message
+# prepare-commit-msg:
+#   commands:
+#     commitzen:
+#       interactive: true
+#       run: npm run build:commit
+#       env:
+#         LEFTHOOK: 0
+
+commit-msg:
+  commands:
+    'Lint commit message':
+      run: npm run lint:commit
+
+pre-commit:
+  parallel: true
+  commands:
+    'Lint and Fix Issues':
+      glob: '*.{js,ts,jsx,tsx}'
+      run: npm run lint:fix {staged_files}
+    'Format Code':
+      glob: '*.{js,ts,jsx,tsx}'
+      run: npm run lint:format:fix {staged_files}
+    'Run Tests on Staged Files':
+      glob: '*.{test,spec}.{js,ts,jsx,tsx}'
+      run: npm run test:staged {staged_files}
+
+pre-push:
+  commands:
+    'Run Test Coverage':
+      run: npm run test:coverage
