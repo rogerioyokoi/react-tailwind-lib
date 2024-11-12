@@ -21,7 +21,7 @@ module.exports = {
   },
   ignorePatterns: ['dist', '.eslintrc.cjs', 'lefthook.yml', 'package*.json', 'README.md', 'index.html'],
   parser: '@typescript-eslint/parser',
-  plugins: ['react-refresh', 'prettier', 'react', 'simple-import-sort'],
+  plugins: ['react-refresh', 'prettier', 'react', 'simple-import-sort', 'import'],
   rules: {
     'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
     'react/jsx-uses-react': 'error',
@@ -31,6 +31,29 @@ module.exports = {
     'jsx-a11y/label-has-for': 'off',
     'simple-import-sort/imports': 'error',
     'simple-import-sort/exports': 'error',
+    // Força o uso de `type` para importações de tipos/interfaces
+    '@typescript-eslint/consistent-type-imports': [
+      'error',
+      {
+        prefer: 'type-imports', // Garante o uso de 'type' para importações de tipos/interfaces
+      },
+    ],
+    // Organiza as importações por separação de grupos e ordem alfabética
+    'import/order': [
+      'error',
+      {
+        groups: [
+          ['builtin', 'external'], // Importações de pacotes internos e externos
+          ['internal'], // Importações de módulos internos
+          ['parent', 'sibling', 'index'], // Importações de arquivos relativos
+        ],
+        'newlines-between': 'always', // Garante separação entre grupos
+        alphabetize: {
+          order: 'asc', // Ordem alfabética ascendente
+          caseInsensitive: true, // Ignora maiúsculas/minúsculas
+        },
+      },
+    ],
   },
   settings: {
     react: {
