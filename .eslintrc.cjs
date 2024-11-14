@@ -23,6 +23,10 @@ module.exports = {
   parser: '@typescript-eslint/parser',
   plugins: ['react-refresh', 'prettier', 'react', 'simple-import-sort', 'import'],
   rules: {
+    'max-params': ['error', 3], // Limita o número de parâmetros de funções/métodos
+    // 'max-lines': ['error', 300], // Limita o número de linhas em um arquivo
+    'prefer-const': 'error', // Garante que o uso de `const` seja preferido quando a variável não for reatribuída
+    'id-length': ['error', { min: 3, properties: 'always' }], // Garante nomes de variáveis mais significativos
     'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
     'react/jsx-uses-react': 'error',
     'react/jsx-uses-vars': 'error',
@@ -31,6 +35,8 @@ module.exports = {
     'jsx-a11y/label-has-for': 'off',
     'simple-import-sort/imports': 'error',
     'simple-import-sort/exports': 'error',
+    '@typescript-eslint/prefer-enum-initializers': 'error', // Incentiva o uso de enums para declarações de constantes
+
     // Força o uso de `type` para importações de tipos/interfaces
     '@typescript-eslint/consistent-type-imports': [
       'error',
