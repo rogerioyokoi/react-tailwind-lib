@@ -1,0 +1,42 @@
+# .editorconfig - Arquivo de configuração de estilo de código
+# Mais informações: https://editorconfig.org/
+
+# Definir configurações globais para todos os arquivos
+root = true
+
+# Configurações para arquivos de código fonte (JavaScript, TypeScript, JSX, etc.)
+[*.{js,ts,jsx,tsx,json,html,css,scss,md}]
+# Indentação
+indent_style = space         # Usa espaços ao invés de tabulação
+indent_size = 2              # Define o tamanho da indentação como 2 espaços
+tab_width = 2                # Define a largura do tab como 2 espaços
+# Quebra de linha
+end_of_line = lf             # Define o tipo de quebra de linha como LF (Unix)
+insert_final_newline = true  # Garante que sempre haverá uma linha em branco no final
+# Aspas
+quote_type = single          # Preferência por aspas simples
+# Máxima largura de linha
+max_line_length = 120        # Limita o comprimento da linha para 120 caracteres
+
+# Configuração específica para arquivos JavaScript/TypeScript
+[*.{js,ts,jsx,tsx}]
+# Não permite espaços extras entre chaves
+trim_trailing_whitespace = true  # Remove espaços extras ao final de linhas
+# Declaração de codificação
+charset = utf-8                # Garante que a codificação do arquivo seja UTF-8
+
+# Configurações para arquivos de configuração JSON
+[*.json]
+indent_style = space         # Usa espaços para indentação
+indent_size = 2              # Define a indentação como 2 espaços
+max_line_length = 100        # Limita o comprimento da linha para 100 caracteres
+
+# Configurações para arquivos Markdown
+[*.md]
+max_line_length = 80         # Limita o comprimento da linha para 80 caracteres
+insert_final_newline = true  # Garante uma nova linha no final do arquivo
+
+# Configurações para arquivos de CSS/SCSS
+[*.{css,scss}]
+indent_style = space         # Usa espaços para indentação
+indent_size = 2              # Define a indentação como 2 espaços
